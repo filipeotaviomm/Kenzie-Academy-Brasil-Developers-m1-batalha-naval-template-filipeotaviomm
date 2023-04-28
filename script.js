@@ -9,9 +9,9 @@ const seaBoard = [
 
 function allocateShips(shipPositions, initialBoard) {
   for (i = 0; i < shipPositions.length; i++) {
-    const posicaoEscolhida = shipPositions[i];
-    // console.log(posicaoEscolhida);
-    initialBoard[posicaoEscolhida[0]][posicaoEscolhida[1]] = "S";
+    const chosenPosition = shipPositions[i];
+    // console.log(chosenPosition);
+    initialBoard[chosenPosition[0]][chosenPosition[1]] = "S";
   }
   // console.log(initialBoard);
   return initialBoard;
@@ -19,10 +19,10 @@ function allocateShips(shipPositions, initialBoard) {
 
 function checkGuesses(guesses, mountedBoard) {
   for (i = 0; i < guesses.length; i++) {
-    const posicaoS = guesses[i];
-    // console.log(posicaoS);
-    if (mountedBoard[posicaoS[0]][posicaoS[1]] == "S") {
-      mountedBoard[posicaoS[0]][posicaoS[1]] = "X";
+    const positionS = guesses[i];
+    // console.log(positionS);
+    if (mountedBoard[positionS[0]][positionS[1]] == "S") {
+      mountedBoard[positionS[0]][positionS[1]] = "X";
     }
   }
   return mountedBoard;
@@ -31,9 +31,9 @@ function checkGuesses(guesses, mountedBoard) {
 function checkWinCondition(guessedBoard) {
   for (i = 0; i < guessedBoard.length; i++) {
     for (j = 0; j < guessedBoard[i].length; j++) {
-      const posicoes = guessedBoard[i][j];
-      // console.log(posicoes);
-      if (posicoes == "S") {
+      const positions = guessedBoard[i][j];
+      // console.log(positions);
+      if (positions == "S") {
         return false;
       }
     }
